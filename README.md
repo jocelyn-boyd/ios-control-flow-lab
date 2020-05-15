@@ -27,11 +27,15 @@ if conditionTwo {
 }
 print("D")
 ```
-
 - A
 - B
 - C
 - D
+
+Solution
+```
+A, C, D
+```
 
 ***
 ## Question 2
@@ -49,12 +53,16 @@ switch appInfo {
  print("I'm not quite sure what you are looking at")
 }
 ```
-
 - appInfo.0 hasn't released yet
 - myCoolApp hasn't released yet
 - Thanks for looking at myCoolApp!
 - I'm not quite sure what you are looking at
 - It will give a compile-time error
+
+Solution
+```
+myCoolApp hasn't released yet
+```
 
 ***
 ## Question 3
@@ -80,6 +88,11 @@ default:
 - C
 - D
 
+Solution
+```
+D
+```
+
 ***
 ## Question 4
 
@@ -97,11 +110,15 @@ case "snickers":
  print("Hungry? Grab a Snickers")
 }
 ```
-
 - No parentheses around the conditions
 - No opening and closing brackets in each of the cases
 - No default case in the switch statement
 - No print statement right outside the switch statement
+
+Solution
+```
+- No default case in the switch statement
+```
 
 ***
 ## Question 5
@@ -112,6 +129,16 @@ Given the current weather conditions (rain, sunny, snow), use a switch statement
 let currentWeather = "rain"
 
 // enter code below
+switch currentWeather {
+case "rain":
+  print("Take an umbrella")
+case "sunny":
+  print("Wear sunglasses")
+case "snow":
+  print("Wear a coat")
+default:
+  print("The weather is fine!")
+}
 ```
 
 ***
@@ -124,10 +151,11 @@ let firstName = "John"
 let lastName = "Appleseed"
 
 // enter code below
+var fullName = "\(firstName) \(lastName)"
+print("The Fellow's full name is \(fullName).")
 ```
 
 ***
-
 ## Question 7
 
 Convert the if/else statement below into a switch statement.
@@ -142,11 +170,17 @@ if temperatureInFahrenheit <= 40 {
 }
 
 //Re-written statement here
-
+switch temperatureInFahrenheit {
+case 0...40:
+  print("It's cold out.")
+case 85..<100:
+  print("It's really warm.")
+default:
+  print("Weather is moderate.")
+}
 ```
 
 ***
-
 ## Question 8
 
 Complete the following code so that "You win!" is printed.
@@ -154,13 +188,21 @@ Complete the following code so that "You win!" is printed.
 ```swift
 if {
  print("You win!")
-} 
-else {
+} else {
+ print("You lose!")
+}
+
+//enter code below
+var winner = true
+
+if winner {
+ print("You win!")
+} else {
  print("You lose!")
 }
 ```
-***
 
+***
 ## Question 9
 
 Given a variable called numberOfSides, write code using a switch so that it prints out the name of the shape. Account for shapes with 3 to 10 sides and print an error message if out of range.
@@ -184,9 +226,30 @@ var numberOfSides = 2
 Output:
 Error
 
+//enter code below
+switch numberOfSides {
+case 3:
+  print("Triangle")
+case 4:
+  print("Square")
+case 5:
+  print("Pentagon")
+case 6:
+  print("Hexagon")
+case 7:
+  print("Heptagon")
+case 8:
+  print("Octagon")
+case 9:
+  print("Nanogon")
+case 10:
+  print("Decagon")
+default:
+  print("Error")
+}
 ```
-***
 
+***
 ## Question 10
 
 Create a switch statement that will convert a number grade into a letter grade as shown below:
@@ -199,7 +262,26 @@ Numeric Score 	Letter Grade
 70 - 79 	C
 65 - 69 	D
 Below 65 	F
+
+//enter code below
+var numericGrade = 100
+
+switch numericGrade { 
+case 100:
+  print("A+")
+case 90...99:
+  print("B")
+case 80...89:
+  print("C")
+case 70...79:
+  print("D")
+case 65...69:
+  print("D")
+default:
+  print("F")
+}
 ```
+
 ***
 
 ## Question 11
@@ -215,7 +297,19 @@ if firstName == "Peter" {
  let lastName = "Collins"
 }
 let fullName = firstName + " " + lastName
+
+//re-written statement here
+let firstName = "Peter"
+var lastName: String = ""
+
+if firstName == "Peter" {
+ let lastName = "Gabriel"
+} else if firstName == "Phil" {
+ let lastName = "Collins"
+}
+let fullName = firstName + " " + lastName
 ```
+
 ***
 
 ## Question 12
@@ -225,9 +319,31 @@ Write an if statement that prints out what decade of life someone is in (e.g "Yo
 ```swift
 let nameAndBirthYear: (String, Int)
 
+//enter code below
+switch nameAndBirthYear {
+case (nameAndBirthYear.0, 13...19):
+  print("You are in your teens.")
+case (nameAndBirthYear.0, 20...29):
+  print("You are in your twenties.")
+case (nameAndBirthYear.0, 30...39):
+  print("You are in your thirties.")
+case (nameAndBirthYear.0, 40...49):
+  print("You are in your forties.")
+case (nameAndBirthYear.0, 50...59):
+  print("You are in your fifties.")
+case (nameAndBirthYear.0, 60...69):
+  print("You are in your sixties.")
+case (nameAndBirthYear.0, 70...79):
+  print("You are in your seventies.")
+case (nameAndBirthYear.0, 80...89):
+  print("You are in your eighties.")
+case (nameAndBirthYear.0, 90...99):
+  print("You are in your nineties.")
+default:
+    print("You are just a kid or super ancient!")
+}
 ```
 ***
-
 
 ## Question 13
 
@@ -251,13 +367,24 @@ default:
 What happens when you change number to:
 
 -a. 365?
+```
+"Days in year"
+```
 
 -b. 1024?
+```
+Bytes in a Kilobyte
+```
 
 -c. 65?
+```
+Some uninteresting number
+```
 
 What happens when you remove the default clause?
-
+```
+You will get an error compile error.
+```
 ***
 
 
@@ -278,18 +405,53 @@ var message = String()
 if population > 10000 {
  message = "\(population) is a large town"
 }
+
+//if-else condition
+if population >= 10000 {
+ message = "\(population) is a large town"
+} else if population < 1000 && population > 5000 {
+  message = "\(population) is med-sized down"
+}
+
+//switch statement
+switch population {
+case 1000...5000:
+  message = "\(population) is a mid-sized town"
+default:
+  message = "\(population) is a large town"
+}
 ```
+
 ***
 
 ## Question 15
 
 Complete the code below so that it prints out and tells the user if the sum of the two numbers in the tuple is at least 15.
 
-a. Using a conditional
-
-b. Using a switch statement
-
 ```swift
 let myTuple: (Int, Int) = (5, 10)
+```
+
+a. Using a conditional
+```swift
+let sum = myTuple.0 + myTuple.1
+
+if sum == 15 {
+  print("Sum of the two numbers in the tuple is at least 15")
+} else {
+  print("Sum of the two numbers in the tuple is over 15")
+}
+```
+
+b. Using a switch statement
+```swift
+let sum = myTuple.0 + myTuple.1
+
+switch sum {
+case 15:
+  print("Sum of the two numbers in the tuple is at least 15")
+default:
+  print("Sum of the two numbers in the tuple is below 15")
+}
 ```
 ***
